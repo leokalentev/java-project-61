@@ -16,7 +16,7 @@ public class Engine {
                 k+=1;
             }
             else {
-                System.out.println(answer + " is wrong answer ;(. Correct answer was " + arrayAnswer[i]);
+                System.out.println("'"+ answer + "'"+ " is wrong answer ;(. Correct answer was " + "'" + arrayAnswer[i] + "'");
                 System.out.println("Let's try again, "+ userName + "!");
                 break;
             }

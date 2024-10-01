@@ -8,12 +8,16 @@
 
 # Пример запуска игры "Проверка на чётность"
 
-Вы можете увидеть пример игры [здесь](https://asciinema.org/a/lJItpXJMfah9VvnffHimA182o).
+Вы можете увидеть пример игры [здесь](https://asciinema.org/a/SdvbGSAavuXAnyDQp2eN1vBOA).
 
 # Пример запуска игры "Калькулятор"
 
-Вы можете увидеть пример игры [здесь](https://asciinema.org/a/jfiekcRwLP9922j7d3GCLmjdg).
+Вы можете увидеть пример игры [здесь](https://asciinema.org/a/8Mj6J2B7K6djq2QdeFiQwn91T).
 
 # Пример запуска игры "НОД"
 
-Вы можете увидеть пример игры [здесь](https://asciinema.org/a/R2612TiR0YT60QOKfpwS8dLJE).
+Вы можете увидеть пример игры [здесь](https://asciinema.org/a/2udYc14mxbgetoqj95JjojCWE).
+
+# Пример запуска игры "Арифметическая прогрессия"
+
+Вы можете увидеть пример игры [здесь](https://asciinema.org/a/w4Wt3bkizsOc5mYjSaVEV4YYf).
