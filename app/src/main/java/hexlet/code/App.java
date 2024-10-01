@@ -1,7 +1,10 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
-
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Progression;
 import java.util.Scanner;
 
 public class App {
@@ -16,31 +19,29 @@ public class App {
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
         Scanner in = new Scanner(System.in);
-        int numberChoice=in.nextInt();
-        if (numberChoice==1){
+        int numberChoice = in.nextInt();
+        if (numberChoice == 1) {
             System.out.println();
             Cli.greetingUser();
-        }
-        else if (numberChoice==2){
+        } else if (numberChoice == 2) {
             System.out.println();
-            String userName= Cli.greetingUser();
+            String userName = Cli.greetingUser();
             Even.evenNumbersGame(userName);
-        }
-        else if (numberChoice==3){
+        } else if (numberChoice == 3) {
             System.out.println();
-            String userName= Cli.greetingUser();
+            String userName = Cli.greetingUser();
             Calc.calcGame(userName);
-        } else if (numberChoice==4) {
+        } else if (numberChoice == 4) {
             System.out.println();
-            String userName= Cli.greetingUser();
+            String userName = Cli.greetingUser();
             GCD.gameGCD(userName);
-        } else if (numberChoice==5) {
+        } else if (numberChoice == 5) {
             System.out.println();
-            String userName= Cli.greetingUser();
+            String userName = Cli.greetingUser();
             Progression.gameProgression(userName);
-        } else if (numberChoice==6) {
+        } else if (numberChoice == 6) {
             System.out.println();
-            String userName= Cli.greetingUser();
+            String userName = Cli.greetingUser();
             Prime.gamePrime(userName);
         }
     }
