@@ -13,7 +13,7 @@ public class Progression {
         for (int i=0;i<3;i++){
             Random random = new Random();
             int [] array=new int [10];
-            array[0]=random.nextInt(1,100);
+            array[0]=random.nextInt(1,101);
             int numberSum=random.nextInt(1,5);
             for (int k=1;k<10;k++){
                 array[k]=array[k-1]+numberSum;

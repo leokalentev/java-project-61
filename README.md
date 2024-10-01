@@ -21,3 +21,7 @@
 # Пример запуска игры "Арифметическая прогрессия"
 
 Вы можете увидеть пример игры [здесь](https://asciinema.org/a/w4Wt3bkizsOc5mYjSaVEV4YYf).
+
+# Пример запуска игры "Простое ли число?"
+
+Вы можете увидеть пример игры [здесь](https://asciinema.org/a/KMTSmijIjxOvlLbtqaFVKywJ4).
