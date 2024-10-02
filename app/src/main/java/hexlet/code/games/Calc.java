@@ -11,36 +11,27 @@ import java.util.Random;
 public class Calc {
     private static String title = "What is the result of the expression?";
 
-    public static void calcGame(String name) {
-        int[] array = new int[100];
+    public static void startGame() {
         String[] arrayZnak = {"+", "-", "*"};
-        for (int i = 0; i < array.length; i++) {
-            array[i] = i + 1;
-        }
-        String[] arrayQuestion = new String[3];
-        String[] arrayAnswer = new String[3];
+        String[][] gameData = new String[3][2];
         for (int i = 0; i < 3; i++) {
             Random random = new Random();
-            int randomIndex1 = random.nextInt(array.length);
-            int randomIndex2 = random.nextInt(array.length);
+            int num1 = random.nextInt(1, 101);
+            int num2 = random.nextInt(1, 101);
             int randomZnak = random.nextInt(arrayZnak.length);
 
-            String question = String.valueOf(array[randomIndex1]) + " " + arrayZnak[randomZnak] + " "
-                    + String.valueOf(array[randomIndex2]);
-            int result = 0;
+            String question = String.valueOf(num1) + " " + arrayZnak[randomZnak] + " "
+                    + String.valueOf(num2);
 
-            if (arrayZnak[randomZnak].equals("+")) {
-                result = array[randomIndex1] + array[randomIndex2];
-            } else if (arrayZnak[randomZnak].equals("-")) {
-                result = array[randomIndex1] - array[randomIndex2];
-            } else if (arrayZnak[randomZnak].equals("*")) {
-                result = array[randomIndex1] * array[randomIndex2];
-            }
-            arrayAnswer[i] = String.valueOf(result);
-            arrayQuestion[i] = question;
-            result = 0;
-            question = "";
+            int result = switch (arrayZnak[randomZnak]) {
+                case "+" -> num1 + num2;
+                case "-" -> num1 - num2;
+                case "*" -> num1 * num2;
+                default -> 0;
+            };
+            gameData[i][1] = String.valueOf(result);
+            gameData[i][0] = question;
         }
-        Engine.startGame(title, arrayQuestion, arrayAnswer, name);
+        Engine.game(title, gameData);
     }
 }

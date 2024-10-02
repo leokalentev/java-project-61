@@ -7,9 +7,8 @@ import java.util.Random;
 public class Prime {
     private static String title = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
-    public static void gamePrime(String userName) {
-        String[] arrayQuestion = new String[3];
-        String[] arrayAnswer = new String[3];
+    public static void startGame() {
+        String[][] gameData = new String[3][2];
 
         int[] array = {2, 3, 5, 7, 11, 17, 19, 23, 29, 31, 37, 41, 43, 47, 13};
 
@@ -25,12 +24,10 @@ public class Prime {
                     break;
                 }
             }
-            arrayAnswer[i] = answer;
-            arrayQuestion[i] = question;
-            question = "";
-            answer = "";
+            gameData[i][1] = answer;
+            gameData[i][0] = question;
         }
 
-        Engine.startGame(title, arrayQuestion, arrayAnswer, userName);
+        Engine.game(title, gameData);
     }
 }

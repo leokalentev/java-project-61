@@ -10,30 +10,22 @@ import java.util.Random;
 @Getter
 public class Even {
     private static String title = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-    public static void evenNumbersGame(String name) {
-        int[] array = new int[100];
-        for (int i = 0; i < array.length; i++) {
-            array[i] = i + 1;
-        }
-
-        String[] arrayQuestion = new String[3];
-        String[] arrayAnswer = new String[3];
+    public static void startGame() {
+        String[][] gameData = new String[3][2];
 
         for (int i = 0; i < 3; i++) {
             Random random = new Random();
-            int randomIndex = random.nextInt(array.length);
-            String question = String.valueOf(array[randomIndex]);
+            int randomNumber = random.nextInt(1, 101);
+            String question = String.valueOf(randomNumber);
             String answer = "";
-            if (array[randomIndex] % 2 == 0) {
+            if (randomNumber % 2 == 0) {
                 answer = "yes";
-            } else if (array[randomIndex] % 2 != 0) {
+            } else {
                 answer = "no";
             }
-            arrayQuestion[i] = question;
-            arrayAnswer[i] = answer;
-            question = "";
-            answer = "";
+            gameData[i][0] = question;
+            gameData[i][1] = answer;
         }
-        Engine.startGame(title, arrayQuestion, arrayAnswer, name);
+        Engine.game(title, gameData);
     }
 }

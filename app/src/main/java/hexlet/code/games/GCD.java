@@ -10,41 +10,33 @@ import java.util.Random;
 @Setter
 public class GCD {
     private static String title = "Find the greatest common divisor of given numbers.";
-    public static void gameGCD(String userName) {
-        int[] array = new int[100];
-        for (int i = 0; i < array.length; i++) {
-            array[i] = i + 1;
-        }
-        String[] arrayQuestion = new String[3];
-        String[] arrayAnswer = new String[3];
+    public static void startGame() {
+        String[][] gameData = new String[3][2];
 
         for (int i = 0; i < 3; i++) {
             Random random = new Random();
-            int randomIndex1 = random.nextInt(array.length);
-            int randomIndex2 = random.nextInt(array.length);
-            String question = String.valueOf(array[randomIndex1]) + " " + String.valueOf(array[randomIndex2]);
+            int randomNumber1 = random.nextInt(1, 101);
+            int randomNumber2 = random.nextInt(1, 101);
+            String question = String.valueOf(randomNumber1) + " " + String.valueOf(randomNumber2);
             String answer = "";
-            if (array[randomIndex1] > array[randomIndex2]) {
-                while (array[randomIndex2] != 0) {
-                    int temp = array[randomIndex2];
-                    array[randomIndex2] = array[randomIndex1] % array[randomIndex2];
-                    array[randomIndex1] = temp;
+            if (randomNumber1 > randomNumber2) {
+                while (randomNumber2 != 0) {
+                    int temp = randomNumber2;
+                    randomNumber2 = randomNumber1 % randomNumber2;
+                    randomNumber1 = temp;
                 }
-                answer = String.valueOf(array[randomIndex1]);
+                answer = String.valueOf(randomNumber1);
             } else {
-                while (array[randomIndex1] != 0) {
-                    int temp = array[randomIndex1];
-                    array[randomIndex1] = array[randomIndex2] % array[randomIndex1];
-                    array[randomIndex2] = temp;
+                while (randomNumber1 != 0) {
+                    int temp = randomNumber1;
+                    randomNumber1 = randomNumber2 % randomNumber1;
+                    randomNumber2 = temp;
                 }
-                answer = String.valueOf(array[randomIndex2]);
+                answer = String.valueOf(randomNumber2);
             }
-
-            arrayQuestion[i] = question;
-            arrayAnswer[i] = answer;
-            question = "";
-            answer = "";
+            gameData[i][0] = question;
+            gameData[i][1] = answer;
         }
-        Engine.startGame(title, arrayQuestion, arrayAnswer, userName);
+        Engine.game(title, gameData);
     }
 }

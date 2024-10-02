@@ -6,9 +6,8 @@ import java.util.Random;
 
 public class Progression {
     private static String title = "What number is missing in the progression?";
-    public static void gameProgression(String userName) {
-        String[] arrayQuestion = new String[3];
-        String[] arrayAnswer = new String[3];
+    public static void startGame() {
+        String[][] gameData = new String[3][2];
 
         for (int i = 0; i < 3; i++) {
             Random random = new Random();
@@ -28,9 +27,9 @@ public class Progression {
                     question += String.valueOf(array[j]) + " ";
                 }
             }
-            arrayAnswer[i] = String.valueOf(array[randomIndex]);
-            arrayQuestion[i] =  question;
+            gameData[i][1] = String.valueOf(array[randomIndex]);
+            gameData[i][0] =  question;
         }
-        Engine.startGame(title, arrayQuestion, arrayAnswer, userName);
+        Engine.game(title, gameData);
     }
 }
