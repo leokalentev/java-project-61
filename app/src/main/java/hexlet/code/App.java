@@ -39,6 +39,8 @@ public class App {
             case 6:
                 Prime.startGame();
                 break;
+            default:
+                break;
         }
     }
 }
