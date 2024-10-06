@@ -10,13 +10,16 @@ import java.util.Random;
 @Setter
 public class GCD {
     private static String title = "Find the greatest common divisor of given numbers.";
-    public static void startGame() {
-        String[][] gameData = new String[3][2];
+    private static final int ATTEMPTS = 3;
+    private static final int MAX_RANDOM_NUMBER = 101;
 
-        for (int i = 0; i < 3; i++) {
+    public static void startGame() {
+        String[][] gameData = new String[ATTEMPTS][2];
+
+        for (int i = 0; i < ATTEMPTS; i++) {
             Random random = new Random();
-            int randomNumber1 = random.nextInt(1, 101);
-            int randomNumber2 = random.nextInt(1, 101);
+            int randomNumber1 = random.nextInt(1, MAX_RANDOM_NUMBER);
+            int randomNumber2 = random.nextInt(1, MAX_RANDOM_NUMBER);
             String question = String.valueOf(randomNumber1) + " " + String.valueOf(randomNumber2);
             String answer = "";
             if (randomNumber1 > randomNumber2) {

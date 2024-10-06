@@ -10,19 +10,17 @@ import java.util.Random;
 @Getter
 public class Even {
     private static String title = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-    public static void startGame() {
-        String[][] gameData = new String[3][2];
+    private static final int ATTEMPTS = 3;
+    private static final int MAX_RANDOM_NUMBER = 101;
 
-        for (int i = 0; i < 3; i++) {
+    public static void startGame() {
+        String[][] gameData = new String[ATTEMPTS][2];
+
+        for (int i = 0; i < ATTEMPTS; i++) {
             Random random = new Random();
-            int randomNumber = random.nextInt(1, 101);
+            int randomNumber = random.nextInt(1, MAX_RANDOM_NUMBER);
             String question = String.valueOf(randomNumber);
-            String answer = "";
-            if (randomNumber % 2 == 0) {
-                answer = "yes";
-            } else {
-                answer = "no";
-            }
+            String answer = (randomNumber % 2 == 0) ? "yes" : "no";
             gameData[i][0] = question;
             gameData[i][1] = answer;
         }

@@ -10,14 +10,16 @@ import java.util.Random;
 @Setter
 public class Calc {
     private static String title = "What is the result of the expression?";
+    private static final int ATTEMPTS = 3;
+    private static final int MAX_RANDOM_NUMBER = 101;
 
     public static void startGame() {
         String[] arrayZnak = {"+", "-", "*"};
-        String[][] gameData = new String[3][2];
-        for (int i = 0; i < 3; i++) {
+        String[][] gameData = new String[ATTEMPTS][2];
+        for (int i = 0; i < ATTEMPTS; i++) {
             Random random = new Random();
-            int num1 = random.nextInt(1, 101);
-            int num2 = random.nextInt(1, 101);
+            int num1 = random.nextInt(1, MAX_RANDOM_NUMBER);
+            int num2 = random.nextInt(1, MAX_RANDOM_NUMBER);
             int randomZnak = random.nextInt(arrayZnak.length);
 
             String question = String.valueOf(num1) + " " + arrayZnak[randomZnak] + " "
