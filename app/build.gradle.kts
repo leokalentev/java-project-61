@@ -31,3 +31,11 @@ tasks.test {
 tasks.getByName("run", JavaExec::class) {
     standardInput = System.`in`
 }
+
+tasks.withType<Checkstyle> {
+    reports {
+        html.required.set(true)
+        html.outputLocation.set(file("config/checkstyle/main.html"))
+        xml.required.set(false)
+    }
+}

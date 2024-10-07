@@ -1,42 +1,43 @@
-.gradle
-build/
-!gradle/wrapper/gradle-wrapper.jar
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
-*.iws
+# Общие файлы и папки IDE
+.idea/
 *.iml
-*.ipr
-out/
-!**/src/main/**/out/
-!**/src/test/**/out/
+*.iws
 
-### Eclipse ###
-.apt_generated
-.classpath
-.factorypath
+# Исключить каталоги IntelliJ IDEA
+/out/
+.gradle/
+build/
+
+# Исключить файлы операционной системы
+.DS_Store
+Thumbs.db
+
+# Исключить временные файлы и файлы сессий
+*.log
+*.lock
+*.tmp
+*.swp
+
+# Исключить бинарные файлы и результаты сборки
+*.class
+*.jar
+*.war
+*.ear
+
+# Исключить файлы настроек для других IDE (например, Eclipse, NetBeans и т.д.)
 .project
-.settings
-.springBeans
-.sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-
-### VS Code ###
+.classpath
+.csettings
 .vscode/
 
-### Mac OS ###
-.DS_Store
+# Исключить конфигурационные файлы Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Исключить результат выполнения Checkstyle и другие временные файлы
+config/checkstyle/*.html
+config/checkstyle/*.xml
+
+# Исключить локальные настройки среды
+.env
