@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.utils.RandomUtil;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,31 +10,43 @@ import java.util.Random;
 @Getter
 @Setter
 public class Calc {
-    private static String title = "What is the result of the expression?";
-    private static final int ATTEMPTS = 3;
+    private static final String TITLE = "What is the result of the expression?";
     private static final int MAX_RANDOM_NUMBER = 101;
+    private static final String[] OPERATORS = {"+", "-", "*"};
 
     public static void startGame() {
-        String[] arrayZnak = {"+", "-", "*"};
-        String[][] gameData = new String[ATTEMPTS][2];
-        for (int i = 0; i < ATTEMPTS; i++) {
-            Random random = new Random();
-            int num1 = random.nextInt(1, MAX_RANDOM_NUMBER);
-            int num2 = random.nextInt(1, MAX_RANDOM_NUMBER);
-            int randomZnak = random.nextInt(arrayZnak.length);
+        String[][] gameData = generateGameData();
+        Engine.game(TITLE, gameData);
+    }
 
-            String question = String.valueOf(num1) + " " + arrayZnak[randomZnak] + " "
-                    + String.valueOf(num2);
+    public static String[][] generateGameData() {
+        int numberOfRounds = Engine.getNumberOfRounds();
+        String[][] gameData = new String[numberOfRounds][2];
 
-            int result = switch (arrayZnak[randomZnak]) {
-                case "+" -> num1 + num2;
-                case "-" -> num1 - num2;
-                case "*" -> num1 * num2;
-                default -> 0;
-            };
-            gameData[i][1] = String.valueOf(result);
+        for (int i = 0; i < numberOfRounds; i++) {
+            int num1 = RandomUtil.getRandomNumber(1, MAX_RANDOM_NUMBER);
+            int num2 = RandomUtil.getRandomNumber(1, MAX_RANDOM_NUMBER);
+            String operator = getRandomOperator();
+
+            String question = num1 + " " + operator + " " + num2;
+            String answer = String.valueOf(calculateResult(num1, num2, operator));
+
             gameData[i][0] = question;
+            gameData[i][1] = answer;
         }
-        Engine.game(title, gameData);
+        return gameData;
+    }
+
+    private static String getRandomOperator() {
+        return OPERATORS[RandomUtil.getRandomNumber(OPERATORS.length)];
+    }
+
+    private static int calculateResult(int num1, int num2, String operator) {
+        return switch (operator) {
+            case "+" -> num1 + num2;
+            case "-" -> num1 - num2;
+            case "*" -> num1 * num2;
+            default -> 0;
+        };
     }
 }

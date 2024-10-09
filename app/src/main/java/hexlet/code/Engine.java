@@ -3,6 +3,11 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
+    private static final int NUMBER_OF_ROUNDS = 3;
+    public static int getNumberOfRounds() {
+        return NUMBER_OF_ROUNDS;
+    }
+
     public static void game(String title, String[][] questionAndAnswer) {
         System.out.println();
         String userName = Cli.greetingUser();
