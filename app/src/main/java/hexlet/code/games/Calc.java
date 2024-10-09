@@ -5,8 +5,6 @@ import hexlet.code.utils.RandomUtil;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Random;
-
 @Getter
 @Setter
 public class Calc {

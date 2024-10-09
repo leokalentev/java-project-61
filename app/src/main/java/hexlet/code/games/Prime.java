@@ -3,8 +3,6 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.utils.RandomUtil;
 
-import java.util.Random;
-
 public class Prime {
     private static final String TITLE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     private static final int MAX_RANDOM_NUMBER = 51;
@@ -20,8 +18,7 @@ public class Prime {
         String[][] gameData = new String[numberOfRounds][2];
 
         for (int i = 0; i < numberOfRounds; i++) {
-            Random random = new Random();
-            String question = String.valueOf(random.nextInt(1, MAX_RANDOM_NUMBER));
+            String question = String.valueOf(RandomUtil.getRandomNumber(1, MAX_RANDOM_NUMBER));
             String answer = "";
             for (int j = 0; j < PRIME_NUMBERS.length; j++) {
                 if (PRIME_NUMBERS[j] != Integer.parseInt(question)) {
